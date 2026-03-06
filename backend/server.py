@@ -11,8 +11,10 @@ from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
 import jwt
-import bcrypt
+from passlib.context import CryptContext
 import shutil
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -169,7 +171,7 @@ async def login(data: AdminLogin):
     admin = await db.admins.find_one({"username": data.username})
     if not admin:
         raise HTTPException(status_code=401, detail="Invalid credentials")
-    if not bcrypt.checkpw(data.password.encode(), admin["password"].encode()):
+    if not pwd_context.verify(data.password, admin["password"]):
         raise HTTPException(status_code=401, detail="Invalid credentials")
     token = jwt.encode({"username": data.username}, SECRET_KEY, algorithm=ALGORITHM)
     return {"access_token": token}
@@ -302,7 +304,7 @@ async def startup_event():
     """Create default admin on startup"""
     admin = await db.admins.find_one({"username": "Autorent"})
     if not admin:
-        hashed = bcrypt.hashpw("Rentauto".encode(), bcrypt.gensalt()).decode()
+        hashed = pwd_context.hash("Rentauto")
         await db.admins.insert_one({"username": "Autorent", "password": hashed})
         print("✅ Default admin created: Autorent / Rentauto")
 
