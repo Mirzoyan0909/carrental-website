@@ -13,7 +13,8 @@ Modern website for selling and renting premium automobiles with stunning design 
 
 ### 🔐 Admin Panel
 - **Quick access** - golden floating button at bottom right
-- **Default login**: `Autorent` / `Rentauto` (auto-created on startup)
+- **Default admin account** is created automatically on startup
+- **Important**: Change credentials after deployment for security
 - **Vehicle management** - add, edit, delete
 - **Photo upload** - from PC or mobile phone camera
 - **Contact management** - phone and Telegram
@@ -93,11 +94,8 @@ Detailed free hosting instructions in [DEPLOYMENT.md](DEPLOYMENT.md)
 ## 🔑 Admin Access
 
 ### Login to admin panel:
-- **URL**: `/admin`
-- **Username**: `Autorent`
-- **Password**: `Rentauto`
-
-Or just click the golden shield icon at the bottom right! 🎯
+- **URL**: `/admin` or click the golden shield icon at the bottom right 🎯
+- **Credentials**: Set up during deployment (contact site owner)
 
 ## 📁 Project Structure
 

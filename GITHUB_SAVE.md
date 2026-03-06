@@ -140,7 +140,7 @@ REACT_APP_BACKEND_URL=<your-render-backend-url>
 ✅ Mobile photo upload (works from phone camera)
 ✅ Rent/Sale filters working perfectly
 ✅ Black/gray Mercedes S-Class in About section
-✅ Admin panel: Login `Autorent` / Password `Rentauto`
+✅ **Admin panel** with secure authentication (credentials set during deployment)
 ✅ No errors - production ready!
 
 ---
