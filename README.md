@@ -235,8 +235,3 @@ Perfect for the USA market! 🇺🇸
 
 ---
 
-**Enjoy using PremiumAuto! 🚀**
-
-If you have questions - open an issue on GitHub!
-
-**Current Preview**: https://dreamy-nightingale-2.preview.emergentagent.com
